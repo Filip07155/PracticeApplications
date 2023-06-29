@@ -7,13 +7,13 @@ namespace Database.Entities
 {
     [Index(ProductsTable.ColumnCategoryId, ProductsTable.CategoriesProductsIndex)]
     [Index(ProductsTable.ColumnCategoryId, ProductsTable.CategoriesIdIndex)]
-    [Index(ProductsTable.ColumnId, ProductsTable.ProductNameIndex)]
+    [Index(ProductsTable.ColumnProductId, ProductsTable.ProductNameIndex)]
     [Index(ProductsTable.ColumnSupplierId, ProductsTable.SupplierIdIndex)]
     [Index(ProductsTable.ColumnSupplierId, ProductsTable.SuppliersProductsIndex)]
     public class Product
     {
-        [Key, Column(ProductsTable.ColumnId), DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        [Key, Column(ProductsTable.ColumnProductId), DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int ProductId { get; set; }
 
         [Required, Column(ProductsTable.ColumnName, TypeName = "nvarchar (40)")]
         public string? Name { get; set; }

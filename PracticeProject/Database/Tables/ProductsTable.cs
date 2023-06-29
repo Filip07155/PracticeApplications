@@ -10,7 +10,7 @@
         public const string SupplierIdIndex = "SupplierId";
         public const string SuppliersProductsIndex = "SuppliersProducts";
 
-        public const string ColumnId = "ProductId";
+        public const string ColumnProductId = "ProductId";
         public const string ColumnName = "ProductName";
         public const string ColumnSupplierId = "SupplierId";
         public const string ColumnCategoryId = "CategoryId";

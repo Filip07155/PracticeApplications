@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Database.Tables
+﻿namespace Database.Tables
 {
-    internal class TerritoriesTable
+    public class TerritoriesTable
     {
+        public const string TableName = "Territories";
+
+        public const string ColumnTerritoryId = "TerritoryId";
+        public const string ColumnTerritoryDescription = "TerritoryDescription";
+        public const string ColumnRegionId = "RegionId";
     }
 }

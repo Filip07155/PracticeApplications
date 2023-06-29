@@ -7,7 +7,7 @@
         public const string PostalCodeIndex = "PostalCodeSuppliers";
         public const string CompanyNameIndex = "CompanyNameSuppliers";
 
-        public const string ColumnId = "SupplierId";
+        public const string ColumnSupplierId = "SupplierId";
         public const string ColumnCompanyName = "CompanyName";
         public const string ColumnContactName = "ContactName";
         public const string ColumnContactTitle = "ContactTitle";

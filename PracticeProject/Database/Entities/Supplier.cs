@@ -10,7 +10,7 @@ namespace Database.Entities
     [Index(SuppliersTable.ColumnCompanyName, SuppliersTable.CompanyNameIndex)]
     public class Supplier
     {
-        [Key, Column(SuppliersTable.ColumnId), DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Key, Column(SuppliersTable.ColumnSupplierId), DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [Required, Column(SuppliersTable.ColumnCompanyName, TypeName = "nvarchar (40)")]
