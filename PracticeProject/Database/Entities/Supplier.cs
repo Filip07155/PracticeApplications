@@ -6,12 +6,12 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Database.Entities
 {
     [Table(SuppliersTable.TableName)]
-    [Index(SuppliersTable.ColumnPostalCode, SuppliersTable.PostalCodeIndex)]
-    [Index(SuppliersTable.ColumnCompanyName, SuppliersTable.CompanyNameIndex)]
+    [Index(nameof(PostalCode), Name = SuppliersTable.PostalCodeIndex)]
+    [Index(nameof(CompanyName), Name = SuppliersTable.CompanyNameIndex)]
     public class Supplier
     {
         [Key, Column(SuppliersTable.ColumnSupplierId), DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int Id { get; set; }
+        public int SupplierId { get; set; }
 
         [Required, Column(SuppliersTable.ColumnCompanyName, TypeName = "nvarchar (40)")]
         [StringLength(40)]

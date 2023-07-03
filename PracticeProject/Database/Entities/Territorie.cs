@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Database.Entities
 {
     [Table(TerritoriesTable.TableName)]
-    internal class Territorie
+    public class Territorie
     {
         [Key, Column(TerritoriesTable.ColumnTerritoryId, TypeName = "nvarchar (20)")]
         [StringLength(20)]

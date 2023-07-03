@@ -6,14 +6,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Database.Entities
 {
     [Table(CategoriesTable.TableName)]
-    [Index(CategoriesTable.ColumnName, CategoriesTable.CategoryNameIndex)]
+    [Index(nameof(CategoryName), Name = CategoriesTable.CategoryNameIndex)]
     public class Category
     {
         [Key, Column(CategoriesTable.ColumnCategoryId), DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CategoryId { get; set; }
 
-        [Required, Column(CategoriesTable.ColumnName, TypeName = "nvarchar (15)")]
-        public string? Name { get; set; }
+        [Required, Column(CategoriesTable.ColumnCategoryName, TypeName = "nvarchar (15)")]
+        public string? CategoryName { get; set; }
 
         [Column(CategoriesTable.ColumnDescription, TypeName = "ntext")]
         public string? Description { get; set; }

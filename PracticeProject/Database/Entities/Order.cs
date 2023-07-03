@@ -6,23 +6,23 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Database.Entities
 {
     [Table(OrdersTable.TableName)]
-    [Index(OrdersTable.ColumnCustomerId, OrdersTable.CustomerIdIndex)]
-    [Index(OrdersTable.ColumnCustomerId, OrdersTable.CustomersOrdersIndex)]
-    [Index(OrdersTable.ColumnEmployeeId, OrdersTable.EmployeeIdIndex)]
-    [Index(OrdersTable.ColumnEmployeeId, OrdersTable.EmployeesOrdersIndex)]
-    [Index(OrdersTable.ColumnOrderDate, OrdersTable.OrderDateIndex)]
-    [Index(OrdersTable.ColumnShippedDate, OrdersTable.ShippedDateIndex)]
-    [Index(OrdersTable.ColumnShipVia, OrdersTable.ShippersOrdersIndex)]
-    [Index(OrdersTable.ColumnShipPostalCode, OrdersTable.ShipPostalCodeIndex)]
+    [Index(nameof(CustomerId), Name = OrdersTable.CustomerIdIndex)]
+    [Index(nameof(CustomerId), Name = OrdersTable.CustomersOrdersIndex)]
+    [Index(nameof(EmployeeId), Name = OrdersTable.EmployeeIdIndex)]
+    [Index(nameof(EmployeeId), Name = OrdersTable.EmployeesOrdersIndex)]
+    [Index(nameof(OrderDate), Name = OrdersTable.OrderDateIndex)]
+    [Index(nameof(ShipPostalCode), Name = OrdersTable.ShipPostalCodeIndex)]
+    [Index(nameof(ShippedDate), Name = OrdersTable.ShippedDateIndex)]
+    [Index(nameof(ShipVia), Name = OrdersTable.ShippersOrdersIndex)]
     public class Order
     {
 
         [Key, Column(OrdersTable.ColumnOrderId)]
-        public int Id { get; set; }
+        public int OrderId { get; set; }
 
         [Column(OrdersTable.ColumnCustomerId, TypeName = "nchar (5)")]
         [StringLength(5), RegularExpression("[A-Z]{5}")]
-        public string? CustomerId { get; set; }
+        public string CustomerId { get; set; }
 
         [Column(OrdersTable.ColumnEmployeeId, TypeName = "int")]
         public int EmployeeId { get; set; }
@@ -67,15 +67,15 @@ namespace Database.Entities
         public string? ShipCountry { get; set; }
 
         [ForeignKey(nameof(CustomerId))]
-        [InverseProperty(nameof(OrdersTable.TableName))]
+        [InverseProperty(nameof(Entities.Customer.Orders))]
         public virtual Customer? Customer { get; set; }
 
         [ForeignKey(nameof(EmployeeId))]
-        [InverseProperty(nameof(OrdersTable.TableName))]
+        [InverseProperty(nameof(Entities.Employee.Orders))]
         public virtual Employee? Employee { get; set; }
 
         [ForeignKey(nameof(ShipVia))]
-        [InverseProperty(nameof(OrdersTable.TableName))]
+        [InverseProperty(nameof(Shipper.Orders))]
         public virtual Shipper? ShipViaNavigation { get; set; }
 
         [InverseProperty(nameof(OrderDetail.Order))]

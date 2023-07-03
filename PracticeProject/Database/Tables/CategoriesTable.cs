@@ -7,7 +7,7 @@
         public const string CategoryNameIndex = "CategoryName";
 
         public const string ColumnCategoryId = "CategoryId";
-        public const string ColumnName = "CategoryName";
+        public const string ColumnCategoryName = "CategoryName";
         public const string ColumnDescription = "Description";
     }
 }

@@ -5,18 +5,18 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Database.Entities
 {
-    [Index(ProductsTable.ColumnCategoryId, ProductsTable.CategoriesProductsIndex)]
-    [Index(ProductsTable.ColumnCategoryId, ProductsTable.CategoriesIdIndex)]
-    [Index(ProductsTable.ColumnProductId, ProductsTable.ProductNameIndex)]
-    [Index(ProductsTable.ColumnSupplierId, ProductsTable.SupplierIdIndex)]
-    [Index(ProductsTable.ColumnSupplierId, ProductsTable.SuppliersProductsIndex)]
+    [Index(nameof(CategoryId), Name = ProductsTable.CategoriesIdIndex)]
+    [Index(nameof(CategoryId), Name = ProductsTable.CategoriesProductsIndex)]
+    [Index(nameof(ProductName), Name = ProductsTable.ProductNameIndex)]
+    [Index(nameof(SupplierId), Name = ProductsTable.SupplierIdIndex)]
+    [Index(nameof(SupplierId), Name = ProductsTable.SuppliersProductsIndex)]
     public class Product
     {
         [Key, Column(ProductsTable.ColumnProductId), DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ProductId { get; set; }
 
-        [Required, Column(ProductsTable.ColumnName, TypeName = "nvarchar (40)")]
-        public string? Name { get; set; }
+        [Required, Column(ProductsTable.ColumnProductName, TypeName = "nvarchar (40)")]
+        public string? ProductName { get; set; }
 
         [Column(ProductsTable.ColumnSupplierId)]
         public int? SupplierId { get; set; }

@@ -9,7 +9,7 @@
         public const string ProductIdIndex = "ProductId";
         public const string ProductsOrder_DetailsIndex = "ProductsOrder_Details";
 
-        public const string ColumnId = "OrderId";
+        public const string ColumnOrderId = "OrderId";
         public const string ColumnProductId = "ProductId";
         public const string ColumnUnitPrice = "UnitPrice";
         public const string ColumnQuantity = "Quantity";

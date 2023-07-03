@@ -6,15 +6,14 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Database.Entities
 {
     [Table(CustomersTable.TableName)]
-    [Index(CustomersTable.ColumnCity, CustomersTable.CityIndex)]
-    [Index(CustomersTable.ColumnCompanyName, CustomersTable.CompanyNameCustomersIndex)]
-    [Index(CustomersTable.ColumnPostalCode, CustomersTable.PostalCodeCustomersIndex)]
-    [Index(CustomersTable.ColumnRegion, CustomersTable.RegionIndex)]
+    [Index(nameof(CompanyName), Name = CustomersTable.CompanyNameCustomersIndex)]
+    [Index(nameof(PostalCode), Name = CustomersTable.PostalCodeCustomersIndex)]
+    [Index(nameof(Region), Name = CustomersTable.RegionIndex)]
     public class Customer
     {
         [Key, Column(CustomersTable.ColumnCustomerId, TypeName = "nchar (5)")]
         [StringLength(5), RegularExpression("[A-Z]{5}")]
-        public int CustomerId { get; set; }
+        public string CustomerId { get; set; }
 
         [Required, Column(CustomersTable.ColumnCompanyName, TypeName = "nvarchar (40)")]
         [StringLength(40)]

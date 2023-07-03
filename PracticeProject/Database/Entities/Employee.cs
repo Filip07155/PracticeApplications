@@ -1,18 +1,13 @@
 ﻿using Database.Tables;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Database.Entities
 {
     [Table(EmployeesTable.TableName)]
-    [Index(EmployeesTable.ColumnLastName, EmployeesTable.LastNameIndex)]
-    [Index(EmployeesTable.ColumnPostalCode, EmployeesTable.PostalCodeEmployeesIndex)]
+    [Index(nameof(LastName), Name = EmployeesTable.LastNameIndex)]
+    [Index(nameof(PostalCode), Name = EmployeesTable.PostalCodeEmployeesIndex)]
     public class Employee
     {
         [Key, Column(EmployeesTable.ColumnEmployeeId)]
@@ -81,12 +76,12 @@ namespace Database.Entities
         [StringLength(255)]
         public string? PhotoPath { get; set; }
 
-        [InverseProperty(nameof(Entities.Order.Employee))]
-        public virtual ICollection<Order> Order { get; set; }
+        [InverseProperty(nameof(Order.Employee))]
+        public virtual ICollection<Order> Orders { get; set; }
 
         public Employee()
         {
-            Order = new HashSet<Order>();
+            Orders = new HashSet<Order>();
         }
     }
 }

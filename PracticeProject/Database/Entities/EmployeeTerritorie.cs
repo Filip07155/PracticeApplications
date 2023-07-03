@@ -1,13 +1,15 @@
 ﻿using Database.Tables;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Database.Entities
 {
+    [Keyless]
     [Table(EmployeeTerritoriesTable.TableName)]
-    internal class EmployeeTerritorie
+    public class EmployeeTerritorie
     {
-        [Key, Column(EmployeeTerritoriesTable.ColumnEmployeeId, TypeName = "int")]
+        [Column(EmployeeTerritoriesTable.ColumnEmployeeId, TypeName = "int")]
         public int EmployeeId { get; set; }
 
         [Required, Column(EmployeeTerritoriesTable.ColumnTerritoryId, TypeName = "nvarchar (20)")]

@@ -17,5 +17,13 @@ namespace Database.Entities
         [Column(ShippersTable.ColumnPhone, TypeName = "nvarchar (24)")]
         [StringLength(24)]
         public string? Phone { get; set; }
+
+        [InverseProperty(nameof(Order.ShipViaNavigation))]
+        public virtual ICollection<Order> Orders { get; set; }
+
+        public Shipper()
+        {
+            Orders = new HashSet<Order>();
+        }
     }
 }
