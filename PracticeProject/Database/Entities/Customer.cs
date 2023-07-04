@@ -13,7 +13,7 @@ namespace Database.Entities
     {
         [Key, Column(CustomersTable.ColumnCustomerId, TypeName = "nchar (5)")]
         [StringLength(5), RegularExpression("[A-Z]{5}")]
-        public string CustomerId { get; set; }
+        public string? CustomerId { get; set; }
 
         [Required, Column(CustomersTable.ColumnCompanyName, TypeName = "nvarchar (40)")]
         [StringLength(40)]

@@ -22,7 +22,7 @@ namespace Database.Entities
 
         [Column(OrdersTable.ColumnCustomerId, TypeName = "nchar (5)")]
         [StringLength(5), RegularExpression("[A-Z]{5}")]
-        public string CustomerId { get; set; }
+        public string? CustomerId { get; set; }
 
         [Column(OrdersTable.ColumnEmployeeId, TypeName = "int")]
         public int EmployeeId { get; set; }
